@@ -45,7 +45,7 @@ export default function Home() {
           </a>
         </div>
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-          <Image src="/lite-xl.png" alt="" width={1000} height={1000}></Image>
+          <Image src="/lite-xl.png" alt="lite-xl" width={1500} height={1500}></Image>
         </div>
       </div>
     </section>

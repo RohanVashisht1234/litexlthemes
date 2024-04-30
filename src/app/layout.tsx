@@ -267,7 +267,7 @@ export default function RootLayout({
                     </li>
                     <li>
                       <a
-                        href="https://discord.gg/4eeurUVvTy"
+                        href="https://discord.gg/UQKnzBhY5H"
                         className="hover:underline"
                       >
                         Discord
@@ -324,7 +324,7 @@ export default function RootLayout({
                   <span className="sr-only">Facebook page</span>
                 </a>
                 <a
-                  href="#"
+                  href="https://discord.gg/UQKnzBhY5H"
                   className="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5"
                 >
                   <svg
