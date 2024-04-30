@@ -48,7 +48,7 @@ export default async function themes() {
           </button>
         </div>
       </div>
-      <div className="flex flex-wrap space-x-4 space-y-4 justify-center">
+      <div className="flex flex-wrap justify-center" style={{gap:"1rem"}}>
         {data.addons.map((addon: { id: string }, index: Key) => (
           <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-110 transform">
             <a href="#">
