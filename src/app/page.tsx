@@ -45,10 +45,7 @@ export default function Home() {
           </a>
         </div>
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
-          <img
-            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/hero/phone-mockup.png"
-            alt="mockup"
-          />
+          <Image src="/lite-xl.png" alt="" width={1000} height={1000}></Image>
         </div>
       </div>
     </section>
