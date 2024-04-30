@@ -4,7 +4,7 @@ export default function themes() {
   return (
     <div className="bg-white dark:bg-gray-900">
         <h1 className="text-center text-5xl font-extrabold dark:text-white p-10">
-          Flowbite
+          Browse themes
         </h1>
       <div className="max-w-md mx-auto">
         <label
