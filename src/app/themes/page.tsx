@@ -50,10 +50,11 @@ export default async function themes() {
       </div>
       <div className="flex flex-wrap space-x-4 space-y-4 justify-center">
         {data.addons.map((addon: { id: string }, index: Key) => (
-          <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div key={index} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-110 transform">
             <a href="#">
-              <img
-                width={"100%"}
+              <Image
+                width={420}
+                height={22}
                 className="rounded-t-lg"
                 src={"https://raw.githubusercontent.com/lite-xl/lite-xl-colors/master/previews/"+ addon.id+".svg"}
                 alt=""
