@@ -1,17 +1,22 @@
 import sys
 from lupa import LuaRuntime
 import json
+import os
+
+
+INPUT_DIR_NAME = './lite-xl-colors/colors'
 
 INITIALIZE_DEFAULT: str = """common = {}
 function common.color(color) return color end
 style = {}
+config = {}
 style.syntax = {}
 style.log = {}"""
 
-DIR_NAME = "./images"
+OUTPUT_DIR_NAME = "./images"
 
 # Default dictionary:
-COLORS: dict = {
+CONSTANT_COLORS: dict = {
     "normal": "#e1e1e6",
     "comment": "#676b6f",
     "literal": "#FFA94D",
@@ -49,6 +54,8 @@ COLORS: dict = {
 }
 
 
+COLORS = CONSTANT_COLORS.copy()
+
 def sanitize_lua(lines: list) -> str:
     """Sanitize the lua file by removing the lines that have a require in them"""
     compiled_file: str = ""
@@ -62,7 +69,7 @@ def sanitize_lua(lines: list) -> str:
 def generate_html(file_name: str) -> None:
     """Generate html from the compiled json"""
     output_file_name = (
-        DIR_NAME + "/" + file_name.replace(".lua", ".svg").replace("./", "")
+        OUTPUT_DIR_NAME + "/" + file_name.replace(".lua", ".svg").replace("./", "")
     )
     colors_generated: dict = {}
     for i in COLORS:
@@ -84,27 +91,44 @@ def read_lua_file(file_name: str) -> list:
     return read_lines
 
 
-def main(argc: int, argv: list) -> int:
+def main(filename: str) -> int:
     """Function main"""
     lua: any = LuaRuntime(unpack_returned_tuples=True)
     lua.execute(INITIALIZE_DEFAULT)
-    file_name: str = argv[argc - 1]
-    sanitized_lua: str = sanitize_lua(read_lua_file(file_name))
+    sanitized_lua: str = sanitize_lua(read_lua_file("./lite-xl-colors/colors/"+filename))
     lua.execute(sanitized_lua)
     style: any = lua.globals().style
     syntax: dict = style.syntax
 
     for i in syntax:
-        COLORS[i] = syntax[i][1]
+        if i == "syntax":
+            try:
+                COLORS[i] = syntax[i][1]
+            except:
+                continue
 
     for i in style:
         if i == "syntax" or i == "log":
             continue
-        COLORS[i] = style[i][1]
-    generate_html(file_name)
+        try:
+            COLORS[i] = style[i][1]
+        except:
+            continue
+    generate_html(filename)
+    return 0
+
+
+
+def _start()-> int:
+    for filename in os.listdir(INPUT_DIR_NAME):
+        if os.path.isfile(os.path.join(INPUT_DIR_NAME, filename)):
+            global COLORS
+            COLORS = CONSTANT_COLORS.copy()
+            print(filename)
+            main(filename)
     return 0
 
 
 if __name__ == "__main__":
-    exit_code: int = main(len(sys.argv), sys.argv)
+    exit_code: int = _start()
     sys.exit(exit_code)
