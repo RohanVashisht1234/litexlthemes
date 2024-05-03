@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Script from "next/script";
 import { Key } from "react";
 
 var global_data: any | null = null;

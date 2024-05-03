@@ -1,11 +1,14 @@
 import sys
 from lupa import LuaRuntime
+import json
 
 INITIALIZE_DEFAULT: str = """common = {}
 function common.color(color) return color end
 style = {}
 style.syntax = {}
 style.log = {}"""
+
+DIR_NAME = "./images"
 
 # Default dictionary:
 COLORS: dict = {
@@ -56,6 +59,24 @@ def sanitize_lua(lines: list) -> str:
     return compiled_file
 
 
+def generate_html(file_name: str) -> None:
+    """Generate html from the compiled json"""
+    output_file_name = (
+        DIR_NAME + "/" + file_name.replace(".lua", ".svg").replace("./", "")
+    )
+    colors_generated: dict = {}
+    for i in COLORS:
+        colors_generated["--lxl_" + i] = COLORS[i]
+    compiled_json: str = json.dumps(colors_generated, indent=4)
+
+    with open(output_file_name, "w") as myfile:
+        with open("./template.svg", "r") as template_file:
+            content: str = template_file.read()
+            content = content.replace("{{%INSERT VALUE HERE%}}", compiled_json.replace("\"", "").replace(",", ";"))
+            myfile.write(content)
+    return None
+
+
 def read_lua_file(file_name: str) -> list:
     """Read lua file read lines"""
     with open(file_name, "r") as fh:
@@ -67,7 +88,8 @@ def main(argc: int, argv: list) -> int:
     """Function main"""
     lua: any = LuaRuntime(unpack_returned_tuples=True)
     lua.execute(INITIALIZE_DEFAULT)
-    sanitized_lua: str = sanitize_lua(read_lua_file(argv[argc - 1]))
+    file_name: str = argv[argc - 1]
+    sanitized_lua: str = sanitize_lua(read_lua_file(file_name))
     lua.execute(sanitized_lua)
     style: any = lua.globals().style
     syntax: dict = style.syntax
@@ -78,12 +100,11 @@ def main(argc: int, argv: list) -> int:
     for i in style:
         if i == "syntax" or i == "log":
             continue
-        print(i, style[i][1])
-        # colors[i] = syntax[i][1]
-
-
+        COLORS[i] = style[i][1]
+    generate_html(file_name)
     return 0
 
 
 if __name__ == "__main__":
-    _ = main(len(sys.argv), sys.argv)
+    exit_code: int = main(len(sys.argv), sys.argv)
+    sys.exit(exit_code)
