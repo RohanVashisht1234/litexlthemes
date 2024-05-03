@@ -77,7 +77,7 @@ def generate_html(file_name: str) -> None:
     compiled_json: str = json.dumps(colors_generated, indent=4)
 
     with open(output_file_name, "w") as myfile:
-        with open("./template.svg", "r") as template_file:
+        with open("./parsers/template.svg", "r") as template_file:
             content: str = template_file.read()
             content = content.replace("{{%INSERT VALUE HERE%}}", compiled_json.replace("\"", "").replace(",", ";"))
             myfile.write(content)
@@ -95,7 +95,7 @@ def main(filename: str) -> int:
     """Function main"""
     lua: any = LuaRuntime(unpack_returned_tuples=True)
     lua.execute(INITIALIZE_DEFAULT)
-    sanitized_lua: str = sanitize_lua(read_lua_file("./lite-xl-colors/colors/"+filename))
+    sanitized_lua: str = sanitize_lua(read_lua_file("./parsers/lite-xl-colors/colors/"+filename))
     lua.execute(sanitized_lua)
     style: any = lua.globals().style
     syntax: dict = style.syntax
