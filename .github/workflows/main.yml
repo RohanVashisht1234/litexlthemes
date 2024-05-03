@@ -19,7 +19,7 @@ jobs:
         python-version: '3.x'  # Adjust to your Python version if necessary
         
     - name: Install dependencies
-      run: pip install -r requirements.txt  # If you have any dependencies
+      run: pip install lupa  # If you have any dependencies
       
     - name: Run main.py
       run: python ./parsers/main.py
