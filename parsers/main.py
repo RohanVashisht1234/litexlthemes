@@ -4,7 +4,7 @@ import json
 import os
 
 
-INPUT_DIR_NAME = './lite-xl-colors/colors'
+INPUT_DIR_NAME = './parsers/lite-xl-colors/colors'
 
 INITIALIZE_DEFAULT: str = """common = {}
 function common.color(color) return color end
@@ -13,7 +13,7 @@ config = {}
 style.syntax = {}
 style.log = {}"""
 
-OUTPUT_DIR_NAME = "./images"
+OUTPUT_DIR_NAME = "./parsers/images"
 
 # Default dictionary:
 CONSTANT_COLORS: dict = {
