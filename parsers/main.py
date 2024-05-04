@@ -73,7 +73,7 @@ def generate_html(file_name: str) -> None:
         OUTPUT_DIR_NAME + "/" + file_name.replace(".lua", ".svg").replace("./", "")
     )
     colors_generated: dict = {}
-    for i in COLORS.items():
+    for i in COLORS:
         colors_generated["--lxl_" + i] = COLORS[i]
     compiled_json: str = json.dumps(colors_generated, indent=4)
 
