@@ -1,9 +1,11 @@
-name: Update README
+name: Update Images
 
 on:
   push:
     branches: [master]
-  workflow_dispatch:  # Manual trigger
+  workflow_dispatch: # Manual trigger
+  schedule:
+    - cron: "0 */6 * * *"
 
 jobs:
   reorganize:
@@ -13,7 +15,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x' 
+          python-version: "3.x"
       - name: Install python dependencies
         run: pip install lupa
       - name: Install lpm
@@ -24,11 +26,17 @@ jobs:
         run: mkdir ./parsers/images
       - name: Call python code
         run: python3 ./parsers/main.py
-      - name: Clean up
+      - name: Clean up colors directory
         run: rm -rf ./colors
-      - name: Commit changes
-        run: |
-            git config --global user.name "Github Actions" && git config --global user.email "<>"
-            git add .
-            git commit -m '[CI] Updated images'
-            git push
+      - name: Clean up lpm directorie
+        run: rm -rf ./lpm
+      - name: Clean up lpm-latest executable
+        run: rm ./lpm-latest
+      - name: Config email
+        run: git config --global user.name "Github Actions" && git config --global user.email "<>"
+      - name: Git add
+        run: git add .
+      - name: Commit images
+        run: git commit -m '[CI] Updated images'
+      - name: Push changes
+        run: git push
