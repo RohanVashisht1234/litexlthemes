@@ -21,6 +21,8 @@ jobs:
         run: ./lpm-latest --userdir . init . && ./lpm-latest --userdir . color install "*" && ./lpm-latest purge --userdir .
       - name: Call python code
         run: python3 ./parsers/images/main.py
+      - name: Clean up
+        run: rm -rf ./colors
       - name: Commit changes
         run: |
             git config --global user.name "Github Actions" && git config --global user.email "<>"
