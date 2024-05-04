@@ -22,6 +22,8 @@ jobs:
         run: wget https://github.com/lite-xl/lite-xl-plugin-manager/releases/download/latest/lpm.x86_64-linux -O ./lpm-latest && chmod +x ./lpm-latest
       - name: Generate lua files inside the directory parsers
         run: ./lpm-latest --userdir . color install '*'
+      - name: Remove the images directory if it exists
+        run: rm -rf ./parsers/images
       - name: Make the images directory for the python's output
         run: mkdir ./parsers/images
       - name: Call python code
