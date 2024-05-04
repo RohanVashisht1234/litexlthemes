@@ -5,15 +5,15 @@ import { Key } from "react";
 var global_data: any | null = null;
 var compiled_data = <></>;
 
-function my() {
+function on_search() {
   var data = global_data;
   let x = document.getElementById("content") as HTMLElement;
   let value = document.getElementById("default-search") as HTMLInputElement;
-  let mything = value.value;
+  let content_inside_searchbox = value.value;
   x.innerHTML = "";
   for (var i = 0; i < data.addons.length; i++) {
     const addon = data.addons[i];
-    if (addon.id.includes(mything)) {
+    if (addon.id.includes(content_inside_searchbox)) {
       x.innerHTML += (
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-110 transform">
           <a href="#">
@@ -175,7 +175,7 @@ export default async function themes() {
             id="default-search"
             className="mb-10 block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Search Mockups, Logos..."
-            onInput={my}
+            onInput={on_search}
             required
           />
           <button
