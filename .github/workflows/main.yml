@@ -19,7 +19,7 @@ jobs:
       - name: Install lpm
         run: wget https://github.com/lite-xl/lite-xl-plugin-manager/releases/download/latest/lpm.x86_64-linux -O ./lpm-latest && chmod +x ./lpm-latest
       - name: Generate lua files inside the directory parsers
-        run: ./lpm-latest --userdir . init . && ./lpm-latest --userdir . color install "*" && ./lpm-latest purge --userdir .
+        run: lpm --userdir . color install '*'
       - name: Call python code
         run: python3 ./parsers/images/main.py
       - name: Clean up
