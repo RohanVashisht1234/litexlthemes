@@ -21,7 +21,7 @@ jobs:
       - name: Generate lua files inside the directory parsers
         run: ./lpm-latest --userdir . color install '*'
       - name: Make the images directory for the python's output
-        run: ./parsers/images/
+        run: mkdir ./parsers/images
       - name: Call python code
         run: python3 ./parsers/main.py
       - name: Clean up
