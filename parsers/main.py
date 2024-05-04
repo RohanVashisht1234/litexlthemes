@@ -4,7 +4,7 @@ import json
 import os
 
 
-INPUT_DIR_NAME = './parsers/lite-xl-colors/colors'
+INPUT_DIR_NAME = './colors'
 
 INITIALIZE_DEFAULT: str = """common = {}
 function common.color(color) return color end
