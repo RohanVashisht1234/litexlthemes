@@ -119,7 +119,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
               alt={correct_addon}
               width={100}
               height={100}
-              className="mx-auto w-full lg:max-w-xl h-64 sm:h-96 bg-black"
+              className="mx-auto w-auto lg:max-w-xl h-36 sm:h-80 bg-black"
               style={{ boxShadow: "10px 10px 10px black" }}
               src={
                 "https://raw.githubusercontent.com/RohanVashisht1234/litexlthemes/main/parsers/images/" +
