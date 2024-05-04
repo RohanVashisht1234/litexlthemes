@@ -95,7 +95,7 @@ def main(filename: str) -> int:
     """Function main"""
     lua: any = LuaRuntime(unpack_returned_tuples=True)
     lua.execute(INITIALIZE_DEFAULT)
-    sanitized_lua: str = sanitize_lua(read_lua_file("./parsers/"+filename))
+    sanitized_lua: str = sanitize_lua(read_lua_file("./colors/"+filename))
     lua.execute(sanitized_lua)
     style: any = lua.globals().style
     syntax: dict = style.syntax
