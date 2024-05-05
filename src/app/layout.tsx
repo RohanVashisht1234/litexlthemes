@@ -7,6 +7,12 @@ import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
+function toggle_nav_display(){
+
+  let mine = document.getElementById("mobile-menu") as HTMLElement;
+  mine.style.cssText = "display:none;";
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -14,7 +20,7 @@ export default function RootLayout({
 }>) {
   const current_route = usePathname();
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={inter.className}>
         <nav className="bg-gray-800">
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -22,6 +28,7 @@ export default function RootLayout({
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <button
                   type="button"
+                  onClick={toggle_nav_display}
                   className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                   aria-controls="mobile-menu"
                   aria-expanded="false"
@@ -93,18 +100,18 @@ export default function RootLayout({
                     >
                       Themes
                     </Link>
-                    <a
-                      href="#"
+                    <Link
+                      href="https://rohanvashisht1234.github.io/makelitexltheme/"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                     >
                       Theme Designer
-                    </a>
-                    <a
-                      href="#"
+                    </Link>
+                    <Link
+                      href="https://lite-xl.com/en/downloads"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                     >
                       Download lite-xl
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -147,7 +154,7 @@ export default function RootLayout({
               </div>
             </div>
           </div>
-          <div className="sm:hidden" id="mobile-menu">
+          <div style={{"display":"none;"}} className="sm:hidden" id="mobile-menu">
             <div className="space-y-1 px-2 pb-3 pt-2">
               <a
                 href="#"
@@ -177,14 +184,16 @@ export default function RootLayout({
             </div>
           </div>
         </nav>
-          {children}
+        {children}
         <footer className="bg-white dark:bg-gray-900">
           <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div className="md:flex md:justify-between">
               <div className="mb-6 md:mb-0">
                 <a href="https://flowbite.com/" className="flex items-center">
-                  <img
+                  <Image
                     src="/logo.svg"
+                    width={30}
+                    height={30}
                     className="h-8 me-3"
                     alt="Lite-xlthemes logo"
                   />

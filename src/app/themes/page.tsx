@@ -1,6 +1,7 @@
 "use client";
-import Image from "next/image";
+import Image from "next/image";;
 import { Key } from "react";
+import Link from "next/link";
 
 var global_data: any | null = null;
 var compiled_data = <></>;
@@ -14,41 +15,37 @@ function on_search() {
   for (var i = 0; i < data.addons.length; i++) {
     const addon = data.addons[i];
     if (addon.id.includes(content_inside_searchbox)) {
-      x.innerHTML += (
-        <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-110 transform">
-          <a href="#">
-            <Image
-              className="rounded-t-lg"
-              src={
+      x.innerHTML += `
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-110 transform">
+            <img
+              class="rounded-t-lg"
+              src=${
                 "https://raw.githubusercontent.com/lite-xl/lite-xl-colors/master/previews/" +
                 addon.id +
                 ".svg"
               }
               alt=""
-              style={{ width: "100%;" }}
+              style="width: 100%;"
             />
-          </a>
-          <div className="p-5">
-            <a href="#">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {addon.id}
+          <div class="p-5">
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                ${addon.id}
               </h5>
-            </a>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-              <span className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-                Version: {addon.version}
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              <span class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                Version: ${addon.version}
               </span>
-              <span className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 capitalize">
-                Type: {addon.tags[0]}
+              <span class="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 capitalize">
+                Type: ${addon.tags[0]}
               </span>
             </p>
             <a
-              href="#"
-              className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              href=${"/themes/"+addon.id}
+              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               View plugin
               <svg
-                className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -65,7 +62,7 @@ function on_search() {
             </a>
           </div>
         </div>
-      );
+        `;
     }
   }
   return;
@@ -86,7 +83,6 @@ export default async function themes() {
             key={index}
             className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-110 transform"
           >
-            <a href="#">
               <Image
                 width={420}
                 height={22}
@@ -98,13 +94,10 @@ export default async function themes() {
                 }
                 alt=""
               />
-            </a>
             <div className="p-5">
-              <a href="#">
                 <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   {addon.id}
                 </h5>
-              </a>
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
                 <span className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
                   Version: {addon.version}
@@ -113,8 +106,8 @@ export default async function themes() {
                   Type: {addon.tags[0]}
                 </span>
               </p>
-              <a
-                href="#"
+              <Link
+                href={"/themes/" + addon.id}
                 className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 View plugin
@@ -133,7 +126,7 @@ export default async function themes() {
                     d="M1 5h12m0 0L9 1m4 4L9 9"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         )

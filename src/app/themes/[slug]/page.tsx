@@ -4,9 +4,11 @@ import Image from "next/image";
 export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getData();
   var correct_addon: string = "404";
+  var addon_data = null;
   data.addons.forEach((addon: { id: string }) => {
     if (addon.id === params.slug) {
       correct_addon = addon.id;
+      addon_data = addon;
     }
   });
   if (correct_addon === "404") {
@@ -86,7 +88,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
             </div>
             <div className="flex flex-col space-y-4 sm:flex-row sm:space-y-0">
               <a
-                href="#"
+                href={addon_data.path ? "https://github.com/lite-xl/lite-xl-colors/tree/master/" + addon_data.path : addon_data.remote.split(":")[1].replace(".git", "")}
                 className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900"
               >
                 View source code

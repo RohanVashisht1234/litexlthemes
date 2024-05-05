@@ -28,8 +28,6 @@ jobs:
         run: mkdir ./parsers/images
       - name: Call python code
         run: python3 ./parsers/main.py
-      - name: Clean up colors directory
-        run: rm -rf ./colors
       - name: Clean up lpm directorie
         run: rm -rf ./lpm
       - name: Clean up lpm-latest executable
