@@ -1,7 +1,8 @@
 "use client";
-import Image from "next/image";;
+import Image from "next/image";
 import { Key } from "react";
 import Link from "next/link";
+import { Badge, Card } from "flowbite-react";
 
 var global_data: any | null = null;
 var compiled_data = <></>;
@@ -40,7 +41,7 @@ function on_search() {
               </span>
             </p>
             <a
-              href=${"/themes/"+addon.id}
+              href=${"/themes/" + addon.id}
               class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               View plugin
@@ -79,56 +80,25 @@ export default async function themes() {
     >
       {data.addons.map(
         (addon: { id: string; version: number; tags: string }, index: Key) => (
-          <div
+          <Card
             key={index}
-            className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-110 transform"
+            className="min-w-96"
+            imgAlt="Meaningful alt text for an image that is not purely decorative"
+            imgSrc={
+              "https://raw.githubusercontent.com/lite-xl/lite-xl-colors/master/previews/" +
+              addon.id +
+              ".svg"
+            }
           >
-              <Image
-                width={420}
-                height={22}
-                className="rounded-t-lg"
-                src={
-                  "https://raw.githubusercontent.com/lite-xl/lite-xl-colors/master/previews/" +
-                  addon.id +
-                  ".svg"
-                }
-                alt=""
-              />
-            <div className="p-5">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  {addon.id}
-                </h5>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                <span className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
-                  Version: {addon.version}
-                </span>
-                <span className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 capitalize">
-                  Type: {addon.tags[0]}
-                </span>
-              </p>
-              <Link
-                href={"/themes/" + addon.id}
-                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                View plugin
-                <svg
-                  className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 14 10"
-                >
-                  <path
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9"
-                  />
-                </svg>
-              </Link>
+            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              {addon.id}
+            </h5>
+            <div className="flex" style={{"gap":"1rem"}}>
+              <Badge color="blue" className="flex w-24 text-center items-center justify-center">Version: {addon.version}</Badge>
+              <Badge color="dark" className="flex w-32 text-center items-center justify-center">Theme type: {addon.tags[0]}</Badge>
             </div>
-          </div>
+
+          </Card>
         )
       )}
     </div>
@@ -194,3 +164,55 @@ async function getData() {
   }
   return res.json();
 }
+
+// div
+//     key={index}
+//     className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-110 transform"
+//   >
+//       <Image
+//         width={420}
+//         height={22}
+//         className="rounded-t-lg"
+//         src={
+//           "https://raw.githubusercontent.com/lite-xl/lite-xl-colors/master/previews/" +
+//           addon.id +
+//           ".svg"
+//         }
+//         alt=""
+//       />
+//     <div className="p-5">
+//         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+//           {addon.id}
+//         </h5>
+//       <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+//         <span className="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+//           Version: {addon.version}
+//         </span>
+//         <span className="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-300 capitalize">
+//           Type: {addon.tags[0]}
+//         </span>
+//       </p>
+//       <Link
+//         href={"/themes/" + addon.id}
+//         className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+//       >
+//         View plugin
+//         <svg
+//           className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+//           aria-hidden="true"
+//           xmlns="http://www.w3.org/2000/svg"
+//           fill="none"
+//           viewBox="0 0 14 10"
+//         >
+//           <path
+//             stroke="currentColor"
+//             stroke-linecap="round"
+//             stroke-linejoin="round"
+//             stroke-width="2"
+//             d="M1 5h12m0 0L9 1m4 4L9 9"
+//           />
+//         </svg>
+//       </Link>
+//     </div>
+//   </div>
+// )}

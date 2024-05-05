@@ -139,7 +139,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 correct_addon +
                 ".svg"
               }
-            ></Image>
+            />
           </div>
         </div>
         <div className="flex flex-wrap justify-around">
