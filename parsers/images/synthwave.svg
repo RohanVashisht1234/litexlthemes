@@ -41,8 +41,8 @@
     --lxl_divider: #171521;
     --lxl_line_highlight: rgba(0; 0; 0; 0.30);
     --lxl_line_number2: #ff79c6;
-    --lxl_guide: #4a445a;
-    --lxl_bracketmatch_color: #f17e6e
+    --lxl_bracketmatch_color: #f17e6e;
+    --lxl_guide: #4a445a
 }</style>
 <g>
 </g>
