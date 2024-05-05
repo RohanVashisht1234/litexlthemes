@@ -4,13 +4,15 @@ import Image from "next/image";
 export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getData();
   var correct_addon: string = "404";
-  var addon_data = null;
-  data.addons.forEach((addon: { id: string }) => {
-    if (addon.id === params.slug) {
-      correct_addon = addon.id;
-      addon_data = addon;
+  var addon_data = { id: "", version: "", path: "", remote: "" };
+  data.addons.forEach(
+    (addon: { id: string; path: string; remote: string; version: string }) => {
+      if (addon.id === params.slug) {
+        correct_addon = addon.id;
+        addon_data = addon;
+      }
     }
-  });
+  );
   if (correct_addon === "404") {
     redirect("/PLUGIN_NOT_FOUND");
   }
@@ -142,26 +144,26 @@ export default async function Page({ params }: { params: { slug: string } }) {
         </div>
         <div className="flex flex-wrap justify-around">
           <div className="flex items-center">
-          <div className="block">
-            <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-t-xl h-[172px] max-w-[301px] md:h-[294px] md:max-w-[512px]">
-              <div className="rounded-lg overflow-hidden h-[156px] md:h-[278px] bg-white dark:bg-gray-800">
-                <Image
-                  width={100}
-                  height={100}
-                  src={
-                    "https://raw.githubusercontent.com/RohanVashisht1234/litexlthemes/main/parsers/images/" +
-                    correct_addon +
-                    ".svg"
-                  }
-                  className="hidden dark:block h-[156px] md:h-[278px] w-full rounded-lg"
-                  alt=""
-                />
+            <div className="block">
+              <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[8px] rounded-t-xl h-[172px] max-w-[301px] md:h-[294px] md:max-w-[512px]">
+                <div className="rounded-lg overflow-hidden h-[156px] md:h-[278px] bg-white dark:bg-gray-800">
+                  <Image
+                    width={100}
+                    height={100}
+                    src={
+                      "https://raw.githubusercontent.com/RohanVashisht1234/litexlthemes/main/parsers/images/" +
+                      correct_addon +
+                      ".svg"
+                    }
+                    className="hidden dark:block h-[156px] md:h-[278px] w-full rounded-lg"
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div className="relative mx-auto bg-gray-900 dark:bg-gray-700 rounded-b-xl rounded-t-sm h-[17px] max-w-[351px] md:h-[21px] md:max-w-[597px]">
+                <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[56px] h-[5px] md:w-[96px] md:h-[8px] bg-gray-800"></div>
               </div>
             </div>
-            <div className="relative mx-auto bg-gray-900 dark:bg-gray-700 rounded-b-xl rounded-t-sm h-[17px] max-w-[351px] md:h-[21px] md:max-w-[597px]">
-              <div className="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-xl w-[56px] h-[5px] md:w-[96px] md:h-[8px] bg-gray-800"></div>
-            </div>
-          </div>
           </div>
           <div className="block">
             <div className="relative mx-auto border-gray-800 dark:border-gray-800 bg-gray-800 border-[16px] rounded-t-xl h-[172px] max-w-[301px] md:h-[294px] md:max-w-[512px]">
