@@ -4,16 +4,10 @@ import "./globals.css";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import Script from "next/script";
 import { Footer, Navbar } from "flowbite-react";
-import { BsDribbble, BsGithub } from "react-icons/bs";
+import { BsDiscord, BsGithub } from "react-icons/bs";
 
 const inter = Inter({ subsets: ["latin"] });
-
-function toggle_nav_display() {
-  let mine = document.getElementById("mobile-menu") as HTMLElement;
-  mine.style.cssText = "display:none;";
-}
 
 export default function RootLayout({
   children,
@@ -31,23 +25,23 @@ export default function RootLayout({
               width={40}
               height={40}
               className="mr-3 h-6 sm:h-9"
-              alt="Flowbite React Logo"
+              alt="Lite-xl themes Logo"
             />
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-              Flowbite React
+              Lite-xl Themes
             </span>
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse>
-            <Navbar.Link href="/" active={current_route === "/" ? true : false}>
+            <Navbar.Link as={Link} href="/" active={current_route === "/" ? true : false}>
               Home
             </Navbar.Link>
-            <Navbar.Link as={Link} href="/">
-              About
+            <Navbar.Link as={Link} href="/themes" active={current_route === "/themes" ? true : false}>
+              Themes
             </Navbar.Link>
-            <Navbar.Link href="#">Services</Navbar.Link>
-            <Navbar.Link href="#">Pricing</Navbar.Link>
-            <Navbar.Link href="#">Contact</Navbar.Link>
+            <Navbar.Link href="https://rohanvashisht1234.github.io/makelitexltheme">Theme designer</Navbar.Link>
+            <Navbar.Link href="https://lite-xl.com/en/downloads">Download lite-xl</Navbar.Link>
+            <Navbar.Link href="https://github.com/lite-xl/lite-xl-plugin-manager">Download lpm</Navbar.Link>
           </Navbar.Collapse>
         </Navbar>
         {children}
@@ -57,42 +51,42 @@ export default function RootLayout({
               <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
                 <div>
                   <Footer.Brand
-                    href="https://flowbite.com"
-                    src="https://flowbite.com/docs/images/logo.svg"
-                    alt="Flowbite Logo"
-                    name="Flowbite"
+                    href="/"
+                    src="/logo.svg"
+                    alt="Lite-xl Themes logo"
+                    name="Lite-xl Themes"
                   />
                 </div>
                 <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
                   <div>
-                    <Footer.Title title="about" />
+                    <Footer.Title title="Lite xl" />
                     <Footer.LinkGroup col>
-                      <Footer.Link href="#">Flowbite</Footer.Link>
-                      <Footer.Link href="#">Tailwind CSS</Footer.Link>
+                      <Footer.Link href="https://lite-xl.com">Lite-xl website</Footer.Link>
+                      <Footer.Link href="https://github.com/lite-xl/lite-xl">Lite-xl GitHub Repo</Footer.Link>
                     </Footer.LinkGroup>
                   </div>
                   <div>
-                    <Footer.Title title="Follow us" />
+                    <Footer.Title title="Join us" />
                     <Footer.LinkGroup col>
-                      <Footer.Link href="#">Github</Footer.Link>
-                      <Footer.Link href="#">Discord</Footer.Link>
+                      <Footer.Link href="https://github.com/lite-xl">Github</Footer.Link>
+                      <Footer.Link href="https://discord.gg/UQKnzBhY5H">Discord</Footer.Link>
                     </Footer.LinkGroup>
                   </div>
                   <div>
-                    <Footer.Title title="Legal" />
+                    <Footer.Title title="Download" />
                     <Footer.LinkGroup col>
-                      <Footer.Link href="#">Privacy Policy</Footer.Link>
-                      <Footer.Link href="#">Terms &amp; Conditions</Footer.Link>
+                      <Footer.Link href="https://lite-xl.com/en/downloads">Lite-xl</Footer.Link>
+                      <Footer.Link href="https://github.com/lite-xl/lite-xl-plugin-manager">Lpm</Footer.Link>
                     </Footer.LinkGroup>
                   </div>
                 </div>
               </div>
               <Footer.Divider />
               <div className="w-full sm:flex sm:items-center sm:justify-between">
-                <Footer.Copyright href="#" by="Flowbite™" year={2022} />
+                <Footer.Copyright href="https://github.com/rohanvashisht1234" by="Rohan Vashisht" year={2024} />
                 <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-                  <Footer.Icon href="#" icon={BsGithub} />
-                  <Footer.Icon href="#" icon={BsDribbble} />
+                  <Footer.Icon href="https://github.com/RohanVashisht1234/litexlthemes" icon={BsGithub} />
+                  <Footer.Icon href="https://discord.gg/UQKnzBhY5H" icon={BsDiscord} />
                 </div>
               </div>
             </div>
