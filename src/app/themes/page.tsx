@@ -4,6 +4,7 @@ import { Key } from "react";
 import Link from "next/link";
 import { Badge, Card, FloatingLabel } from "flowbite-react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import Container from "react-dom/client";
 import ReactDOM from "react-dom/client";
 
 var global_data: any | null = null;
