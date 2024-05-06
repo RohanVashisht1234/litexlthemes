@@ -5,7 +5,8 @@ import React from "react";
 import { Carousel } from "flowbite-react";
 export default function Home() {
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <>
+    <section className="bg-white dark:bg-gray-800">
       <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
         <div className="mr-auto place-self-center lg:col-span-7">
           <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
@@ -48,42 +49,24 @@ export default function Home() {
         </div>
         <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
           <Image
-            src="/lite-xl.png"
+            src="https://raw.githubusercontent.com/RohanVashisht1234/litexlthemes/main/parsers/images/justperfect.svg"
             alt="lite-xl"
             width={1500}
             height={1500}
           ></Image>
         </div>
       </div>
-      <div className="h-56 sm:h-64 xl:h-80 2xl:h-96">
-        <Carousel>
-          <Image width={100} height={100} src="/lite-xl.png" alt="..." />
-          <Image
-            width={100}
-            height={100}
-            src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-            alt="..."
-          />
-          <Image
-            width={100}
-            height={100}
-            src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-            alt="..."
-          />
-          <Image
-            width={100}
-            height={100}
-            src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-            alt="..."
-          />
-          <Image
-            width={100}
-            height={100}
-            src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-            alt="..."
-          />
+      </section>
+      <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 dark:bg-gray-900">
+        <br></br>
+        <Carousel slideInterval={400} className="relative w-full max-w-2xl mx-auto border border-gray-300 shadow-2xl rounded-3xl dark:border-gray-700">
+          <Image className="w-full h-full p-4" width={1500} height={1500} src="https://raw.githubusercontent.com/RohanVashisht1234/litexlthemes/main/parsers/images/ayu-mirage.svg" alt="..." />
+          <Image className="w-full h-full p-4" width={1500} height={1500} src="https://raw.githubusercontent.com/RohanVashisht1234/litexlthemes/main/parsers/images/vscode-dark.svg" alt="..." />
+          <Image className="w-full h-full p-4" width={1500} height={1500} src="https://raw.githubusercontent.com/RohanVashisht1234/litexlthemes/main/parsers/images/dracula.svg" alt="..." />
+          <Image className="w-full h-full p-4" width={1500} height={1500} src="https://raw.githubusercontent.com/RohanVashisht1234/litexlthemes/main/parsers/images/catppuccin-macchiato.svg" alt="..." />
+          <Image className="w-full h-full p-4" width={1500} height={1500} src="https://raw.githubusercontent.com/RohanVashisht1234/litexlthemes/main/parsers/images/monokai.svg" alt="..." />
         </Carousel>
       </div>
-    </section>
+      </>
   );
 }

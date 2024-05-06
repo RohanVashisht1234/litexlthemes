@@ -1,5 +1,8 @@
 import { redirect } from "next/navigation";
 import Image from "next/image";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { lua } from "react-syntax-highlighter/dist/esm/languages/prism";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getData();
@@ -20,6 +23,23 @@ export default async function Page({ params }: { params: { slug: string } }) {
     "https://raw.githubusercontent.com/RohanVashisht1234/litexlthemes/main/colors/" +
     addon_data.id +
     ".lua";
+  var codeString = "";
+  await fetch(url)
+    .then((response) => {
+      // Check if the response status is OK (200)
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      // Parse the JSON data in the response
+      return response.text();
+    })
+    .then((source_code) => {
+      codeString = source_code;
+    })
+    .catch((error) => {
+      // Handle any errors that occurred during the fetch
+      console.error("There was a problem with the fetch operation:", error);
+    });
   return (
     <>
       <section className="bg-white dark:bg-gray-900">
@@ -184,6 +204,11 @@ export default async function Page({ params }: { params: { slug: string } }) {
             <div className="relative mx-auto bg-gray-900 dark:bg-gray-700 rounded-b-xl h-[24px] max-w-[301px] md:h-[42px] md:max-w-[512px]"></div>
             <div className="relative mx-auto bg-gray-800 rounded-b-xl h-[55px] max-w-[83px] md:h-[95px] md:max-w-[142px]"></div>
           </div>
+        </div>
+        <div className="flex justify-center">
+          <SyntaxHighlighter language="lua" className="relative w-full max-w-4xl mx-auto mt-12 border border-gray-300 shadow-2xl rounded-3xl lg:mt-20 dark:border-gray-700 yt-video" style={a11yDark}>
+            {codeString}
+          </SyntaxHighlighter>
         </div>
       </section>
     </>
