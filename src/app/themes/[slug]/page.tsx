@@ -79,7 +79,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
                   </span>
                   <span
                     id="success-icon"
-                    className="hidden inline-flex items-center"
+                    className="inline-flex items-center"
                   >
                     <svg
                       className="w-3.5 h-3.5 text-blue-700 dark:text-blue-500"
