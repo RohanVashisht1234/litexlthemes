@@ -12,7 +12,7 @@ var compiled_data = <></>;
 function on_search() {
     var data = global_data;
     let x = document.getElementById("content") as HTMLElement;
-    let search_box = document.getElementById("default-search") as HTMLImageElement;
+    let search_box = document.getElementById("default-search") as HTMLInputElement;
     let search_box_contents = search_box.value;
     compiled_data = <></>;
     const root = ReactDOM.createRoot(document.getElementById('content'));
