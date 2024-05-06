@@ -15,7 +15,7 @@ function on_search() {
     let search_box = document.getElementById("default-search") as HTMLInputElement;
     let search_box_contents = search_box.value;
     compiled_data = <></>;
-    const root = ReactDOM.createRoot(document.getElementById('content'));
+    const root = ReactDOM.createRoot(document.getElementById('content') as Container);
     for (let i = 0; i < data.addons.length; i++) {
         if (data.addons[i].id.includes(search_box_contents)) {
             var addon = data.addons[i];
