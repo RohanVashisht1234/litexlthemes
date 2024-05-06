@@ -2,7 +2,6 @@ import { redirect } from "next/navigation";
 import Image from "next/image";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { lua } from "react-syntax-highlighter/dist/esm/languages/prism";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getData();
