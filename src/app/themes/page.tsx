@@ -24,7 +24,7 @@ function on_search() {
                 <>
                 {compiled_data}
                 <Card
-                    className="min-w-96"
+                    className="min-w-64 sm:min-w-96"
                     imgAlt="Meaningful alt text for an image that is not purely decorative"
                     imgSrc={
                         "https://raw.githubusercontent.com/lite-xl/lite-xl-colors/master/previews/" +
