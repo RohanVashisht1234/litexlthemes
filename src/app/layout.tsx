@@ -28,7 +28,7 @@ export default function RootLayout({
               alt="Lite-xl themes Logo"
             />
             <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-            Lite XL Themes
+              Lite XL Themes
             </span>
           </Navbar.Brand>
           <Navbar.Toggle />
@@ -76,10 +76,10 @@ export default function RootLayout({
                     <Footer.Title title="Lite XL" />
                     <Footer.LinkGroup col>
                       <Footer.Link href="https://lite-xl.com">
-                      Lite XL website
+                        Lite XL website
                       </Footer.Link>
                       <Footer.Link href="https://github.com/lite-xl/lite-xl">
-                      Lite XL GitHub Repo
+                        Lite XL GitHub Repo
                       </Footer.Link>
                     </Footer.LinkGroup>
                   </div>

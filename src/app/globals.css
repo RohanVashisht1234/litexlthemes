@@ -31,3 +31,8 @@ body {
     text-wrap: balance;
   }
 }
+
+#default-search{
+  width: 500px;
+  min-width:100px;
+}

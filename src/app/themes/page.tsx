@@ -22,41 +22,41 @@ function on_search() {
             var addon = data.addons[i];
             compiled_data = (
                 <>
-                {compiled_data}
-                <Card
-                    className="min-w-64 sm:min-w-96"
-                    imgAlt="Meaningful alt text for an image that is not purely decorative"
-                    imgSrc={
-                        "https://raw.githubusercontent.com/lite-xl/lite-xl-colors/master/previews/" +
-                        addon.id +
-                        ".svg"
-                    }
-                >
-                    <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        {addon.id}
-                    </h5>
-                    <div className="flex" style={{ gap: "1rem" }}>
-                        <Badge
-                            color="blue"
-                            className="flex w-24 text-center items-center justify-center"
-                        >
-                            Version: {addon.version}
-                        </Badge>
-                        <Badge
-                            color="dark"
-                            className="flex w-32 text-center items-center justify-center"
-                        >
-                            Theme type: <span className="capitalize">{addon.tags[0]}</span>
-                        </Badge>
-                    </div>
-                    <Link
-                        href={"/themes/" + addon.id}
-                        className="font-semibold inline-flex items-center px-3 py-2 text-sm w-fit text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    {compiled_data}
+                    <Card
+                        className="min-w-64 sm:min-w-96"
+                        imgAlt="Meaningful alt text for an image that is not purely decorative"
+                        imgSrc={
+                            "https://raw.githubusercontent.com/lite-xl/lite-xl-colors/master/previews/" +
+                            addon.id +
+                            ".svg"
+                        }
                     >
-                        View Plugin
-                        <FaArrowUpRightFromSquare className="mr-2 ml-2 h-4 w-4" />
-                    </Link>
-                </Card>
+                        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            {addon.id}
+                        </h5>
+                        <div className="flex" style={{ gap: "1rem" }}>
+                            <Badge
+                                color="blue"
+                                className="flex w-24 text-center items-center justify-center"
+                            >
+                                Version: {addon.version}
+                            </Badge>
+                            <Badge
+                                color="dark"
+                                className="flex w-32 text-center items-center justify-center"
+                            >
+                                Theme type: <span className="capitalize">{addon.tags[0]}</span>
+                            </Badge>
+                        </div>
+                        <Link
+                            href={"/themes/" + addon.id}
+                            className="font-semibold inline-flex items-center px-3 py-2 text-sm w-fit text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        >
+                            View Plugin
+                            <FaArrowUpRightFromSquare className="mr-2 ml-2 h-4 w-4" />
+                        </Link>
+                    </Card>
                 </>
             );
         }
