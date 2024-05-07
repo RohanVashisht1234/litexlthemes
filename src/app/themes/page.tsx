@@ -14,11 +14,11 @@ function on_search() {
     var data = global_data;
     let x = document.getElementById("content") as HTMLElement;
     let search_box = document.getElementById("default-search") as HTMLInputElement;
-    let search_box_contents = search_box.value;
+    let search_box_contents = search_box.value.toLowerCase();
     compiled_data = <></>;
     const root = ReactDOM.createRoot(document.getElementById('content') as Container.Container);
     for (let i = 0; i < data.addons.length; i++) {
-        if (data.addons[i].id.includes(search_box_contents)) {
+        if (data.addons[i].id.toLowerCase().includes(search_box_contents)) {
             var addon = data.addons[i];
             compiled_data = (
                 <>
@@ -46,7 +46,7 @@ function on_search() {
                             color="dark"
                             className="flex w-32 text-center items-center justify-center"
                         >
-                            Theme type: {addon.tags[0]}
+                            Theme type: <span className="capitalize">{addon.tags[0]}</span>
                         </Badge>
                     </div>
                     <Link
