@@ -48,7 +48,6 @@ export default function Home() {
             ></Image>
           </div>
         </div>
-      </section>
       <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 dark:bg-gray-900">
         <br></br>
         <Carousel
@@ -92,6 +91,7 @@ export default function Home() {
           />
         </Carousel>
       </div>
+      </section>
     </>
   );
 }

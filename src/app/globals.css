@@ -18,12 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #111827;
 }
 
 @layer utilities {
@@ -35,4 +30,8 @@ body {
 #default-search{
   width: 500px;
   min-width:100px;
+}
+
+#footer_container{
+    margin-top: 50px;
 }

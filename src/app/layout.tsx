@@ -16,8 +16,8 @@ export default function RootLayout({
 }>) {
   const current_route = usePathname();
   return (
-    <html lang="en" className="dark">
-      <body className={inter.className}>
+    <html lang="en" className="dark bg-gray-800">
+      <body className={inter.className} style={{"min-height":"100vh"}}>
         <Navbar fluid rounded>
           <Navbar.Brand as={Link} href="/">
             <Image
@@ -59,8 +59,8 @@ export default function RootLayout({
           </Navbar.Collapse>
         </Navbar>
         {children}
-        <div className="pt-10 bg-slate-900">
-          <Footer container>
+        <div className="pt-max-auto bg-slate-900">
+          <Footer id="footer_container" container>
             <div className="w-full">
               <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
                 <div>
