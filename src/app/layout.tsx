@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Footer, Navbar } from "flowbite-react";
 import { BsDiscord, BsGithub } from "react-icons/bs";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,7 @@ export default function RootLayout({
   const current_route = usePathname();
   return (
     <html lang="en" className="dark bg-gray-800">
-      <body className={inter.className} style={{"min-height":"100vh"}}>
+      <body className={inter.className}>
         <Navbar fluid rounded>
           <Navbar.Brand as={Link} href="/">
             <Image
@@ -60,7 +61,7 @@ export default function RootLayout({
         </Navbar>
         {children}
         <div className="pt-max-auto bg-slate-900">
-          <Footer id="footer_container" container>
+          <Footer className="max-my-auto" container>
             <div className="w-full">
               <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
                 <div>
@@ -127,6 +128,7 @@ export default function RootLayout({
               </div>
             </div>
           </Footer>
+          <Script strategy='afterInteractive' src="/copy_to_clipboard.js"></Script>
         </div>
       </body>
     </html>
