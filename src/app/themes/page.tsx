@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import { Key } from "react";
+import Script from "next/script";
 import Link from "next/link";
 import { Badge, Card, FloatingLabel } from "flowbite-react";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
@@ -154,6 +153,7 @@ export default function Themes() {
         />
       </div>
       <div>{compiledData}</div>
+      <Script strategy='afterInteractive' src="/copy_to_clipboard.js"></Script>
     </div>
   );
 }

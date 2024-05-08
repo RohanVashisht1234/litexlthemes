@@ -6,7 +6,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Footer, Navbar } from "flowbite-react";
 import { BsDiscord, BsGithub } from "react-icons/bs";
-import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -128,7 +127,6 @@ export default function RootLayout({
               </div>
             </div>
           </Footer>
-          <Script strategy='afterInteractive' src="/copy_to_clipboard.js"></Script>
         </div>
       </body>
     </html>
