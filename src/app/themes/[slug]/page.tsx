@@ -195,6 +195,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
           {codeString}
         </div>
       </section>
+      <Script strategy='afterInteractive' src="/copy_to_clipboard.js"></Script>
     </>
   );
 }
