@@ -41,8 +41,8 @@
     --lxl_divider: #060607;
     --lxl_line_highlight: #aaaaaa0d;
     --lxl_line_number2: #555555;
-    --lxl_lint: null;
     --lxl_guide_highlighting: #555555bb;
+    --lxl_lint: null;
     --lxl_guide: #55555530
 }</style>
 <g>
