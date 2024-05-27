@@ -41,10 +41,10 @@
     --lxl_divider: #151515;
     --lxl_line_highlight: #191919;
     --lxl_line_number2: #888888;
-    --lxl_guide_highlight: #5b5b5b;
-    --lxl_guide: #3b3b3b;
     --lxl_bracketmatch_color: #8197bf;
-    --lxl_linter_warning: #d8ad4c
+    --lxl_linter_warning: #d8ad4c;
+    --lxl_guide: #3b3b3b;
+    --lxl_guide_highlight: #5b5b5b
 }</style>
 <g>
 </g>
