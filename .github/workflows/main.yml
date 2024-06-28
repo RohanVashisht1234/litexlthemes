@@ -4,8 +4,6 @@ on:
   push:
     branches: [master]
   workflow_dispatch: # Manual trigger
-  schedule:
-    - cron: "0 */6 * * *"
 
 jobs:
   generate_images:
